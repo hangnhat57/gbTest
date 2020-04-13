@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="test-plan">Test Plan</h1>
+<p>A detail plan for automated testing Travel Insurance application</p>
+<pre><code>
+Glossary:
+
+1. SDE : Software Development Engineer
+
+2. SDET : Software Development Engineer in Test
+
+3. QAE: Manual Software Test Engineer
+
+</code></pre>
+<h2 id="project-">Project :</h2>
+<h4 id="automated-regression-test-for-travel-insurance.">Automated regression test for Travel Insurance.</h4>
+<h2 id="goal">Goal</h2>
+<ul>
+<li>
+<p>Automated all possible manual regression test cases</p>
+</li>
+<li>
+<p>Reduce workload from manual works</p>
+</li>
+<li>
+<p>Verify all important business flow before deploying</p>
+</li>
+<li>
+<p>Bring confidence for each deployment to production</p>
+</li>
+</ul>
+<h2 id="assumptions">Assumptions</h2>
+<ol>
+<li>
+<p>All new code have been reviewed by SDEs/SDETs</p>
+</li>
+<li>
+<p>All unit and integration tests are being written, updated and reviewed by the SDEs/SDETs/QAEs</p>
+</li>
+<li>
+<p>There are existing test cases/suites written by QAEs. ( Incase we don’t have any existing stuff, manual tests should be written by QAEs/SDETs</p>
+</li>
+</ol>
+<h2 id="deliverables">Deliverables</h2>
+<ol>
+<li>
+<p>Test scripts to automated regression test every deployment</p>
+</li>
+<li>
+<p>Test Report</p>
+</li>
+<li>
+<p>Business Coverage Percent ( estimated )</p>
+</li>
+</ol>
+<h2 id="test-approach">Test Approach</h2>
+<ol>
+<li>
+<h3 id="test-types">Test types</h3>
+</li>
+</ol>
+<ul>
+<li><strong>API test</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li>Interact with service layer, send calls to APIs/services then validate output ( http code/ http response/ gRPC response message ) .</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Interact with model layer, send queries to database then validate out ( records created / updated/ deleted , records match with response from api/service layer)</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>Goals :</p>
+</li>
+<li>
+<p>Validate the correctness of all backend functions</p>
+</li>
+<li>
+<p><strong>GUI test</strong></p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>Intera ct with browser,simulate end-user behaviors then verify how application works, how front end application responses/displays to user,. any broken elements.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>All test cases represent for previous bug, issue which often happen</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>
+<h3 id="tools">Tools</h3>
+</li>
+</ol>
+<ul>
+<li>API testing:</li>
+</ul>
+<blockquote>
+<p>There are many options for api testing</p>
+</blockquote>
+<ol>
+<li>PostMan</li>
+</ol>
+<ul>
+<li>
+<p>Pros:</p>
+</li>
+<li>
+<p>Can be share between SDEs - SDETs - QAEs</p>
+</li>
+<li>
+<p>Have GUI, everyone can you</p>
+</li>
+<li>
+<p>Cons:</p>
+</li>
+<li>
+<p>Have GUI :D, then sometime it’s too complex</p>
+</li>
+</ul>
+<ol start="2">
+<li>API testing lib together with GUI test framework</li>
+</ol>
+<ul>
+<li>
+<p>Pros:</p>
+</li>
+<li>
+<p>Both api - gui tests are maintained in same location</p>
+</li>
+<li>
+<p>Cons:</p>
+</li>
+<li>
+<p>Once number of tests is becoming huge, it’s complex for rookies able to understand / maintain</p>
+</li>
+</ul>
+<ol start="3">
+<li>API testing lib together with backend repo</li>
+</ol>
+<ul>
+<li>
+<p>Pros:</p>
+</li>
+<li>
+<p>Easy to maintain by both SDEs/SDETs</p>
+</li>
+<li>
+<p>Update test when feature changes could be faster</p>
+</li>
+<li>
+<p>Cons :</p>
+</li>
+<li>
+<p>Multiple languages SDETs have to write</p>
+</li>
+</ul>
+<blockquote>
+<p>Overall: Depend on development process</p>
+</blockquote>
+<ul>
+<li>
+<p>GUI testing:</p>
+</li>
+<li>
+<p>Programming Languages :</p>
+</li>
+<li>
+<p>Java : Common language in Vietnam, many supported libs</p>
+</li>
+<li>
+<p>Python : Common language, easy to learn ,many supported libs</p>
+</li>
+<li>
+<p>NodeJS : Many modern test framework built with this language.</p>
+</li>
+</ul>
+<blockquote>
+<p>In here, I choose NodeJS, the reason is easier if GUI test framework - front end framework are same languages. If necessary we can switch FE-SDE/SDETs to develop together</p>
+</blockquote>
+<ul>
+<li>
+<p>Core API:</p>
+</li>
+<li>
+<p>SeleniumJS</p>
+</li>
+<li>
+<p>Protractor</p>
+</li>
+<li>
+<p>WebdriverIO</p>
+</li>
+</ul>
+<p>All of them are good, I choose Protractor as it has alot of pre-build functions to help my work easier. And its community is huge.</p>
+<ul>
+<li>
+<p>BDD framework:</p>
+</li>
+<li>
+<p>Cucumber: Almost SDETs/QAEs love this.</p>
+</li>
+<li>
+<p>Reporter:</p>
+</li>
+<li>
+<p>basic HTML report : able to store in local / CI workplace, view by open file</p>
+</li>
+<li>
+<p>Report Portal : Central server to store report with ML integrated <a href="https://reportportal.io/">More details…</a></p>
+</li>
+</ul>
+<p>I choose report portal to not miss any report, can analyze test report each round.</p>
+<blockquote>
+<p>Overall: Protractor + Cucumber + Report Portal</p>
+</blockquote>
+<h2 id="schedule">Schedule</h2>
+<blockquote>
+<p>Depend on how our CI/CD pipeline work</p>
+</blockquote>
+<ul>
+<li>
+<p>Idealy, this regression test should run after :</p>
+</li>
+<li>
+<p>Code is merged to protect branch</p>
+</li>
+<li>
+<p>Deploying to staging / UAT environment</p>
+</li>
+<li>
+<p>Unit test passed</p>
+</li>
+<li>
+<p>Integration test passed</p>
+</li>
+<li>
+<p>Code coverage percent on new code line are passed</p>
+</li>
+<li>
+<p>For e.g:</p>
+</li>
+</ul>
+<div class="mermaid"><svg xmlns="http://www.w3.org/2000/svg" id="mermaid-svg-5Kc32SQVbolbWa76" width="100%" style="max-width: 1322.578125px;" viewBox="0 0 1322.578125 158"><g transform="translate(-12, -12)"><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M55.171875,91L80.171875,91L105.171875,91" marker-end="url(#arrowhead535)" style="fill:none"></path><defs><marker id="arrowhead535" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M158.33658854166666,68L185.859375,43L234.140625,43" marker-end="url(#arrowhead536)" style="fill:none"></path><defs><marker id="arrowhead536" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M158.33658854166666,114L185.859375,139L210.859375,139" marker-end="url(#arrowhead537)" style="fill:none"></path><defs><marker id="arrowhead537" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M311.359375,43L359.640625,43L409.5958658854167,68" marker-end="url(#arrowhead538)" style="fill:none"></path><defs><marker id="arrowhead538" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M334.640625,139L359.640625,139L409.5958658854167,114" marker-end="url(#arrowhead539)" style="fill:none"></path><defs><marker id="arrowhead539" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M526.46875,91L551.46875,91L576.46875,91" marker-end="url(#arrowhead540)" style="fill:none"></path><defs><marker id="arrowhead540" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M725.421875,91L750.421875,91L775.421875,91" marker-end="url(#arrowhead541)" style="fill:none"></path><defs><marker id="arrowhead541" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M908.125,91L933.125,91L958.125,91" marker-end="url(#arrowhead542)" style="fill:none"></path><defs><marker id="arrowhead542" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1062.0667317708333,68L1107.46875,43L1132.46875,43" marker-end="url(#arrowhead543)" style="fill:none"></path><defs><marker id="arrowhead543" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1062.0667317708333,114L1107.46875,139L1133.9765625,139" marker-end="url(#arrowhead544)" style="fill:none"></path><defs><marker id="arrowhead544" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1209.015625,43L1234.015625,43L1264.630859375,68" marker-end="url(#arrowhead545)" style="fill:none"></path><defs><marker id="arrowhead545" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1207.5078125,139L1234.015625,139L1264.630859375,114" marker-end="url(#arrowhead546)" style="fill:none"></path><defs><marker id="arrowhead546" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node" id="CI" transform="translate(37.5859375,91)" style="opacity: 1;"><rect rx="0" ry="0" x="-17.5859375" y="-23" width="35.171875" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-7.5859375,-13)"><foreignObject width="15.171875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">CI</div></foreignObject></g></g></g><g class="node" id="Build" transform="translate(133.015625,91)" style="opacity: 1;"><rect rx="0" ry="0" x="-27.84375" y="-23" width="55.6875" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-17.84375,-13)"><foreignObject width="35.6875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Build</div></foreignObject></g></g></g><g class="node" id="UnitTest" transform="translate(272.75,43)" style="opacity: 1;"><rect rx="0" ry="0" x="-38.609375" y="-23" width="77.21875" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-28.609375,-13)"><foreignObject width="57.21875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">UnitTest</div></foreignObject></g></g></g><g class="node" id="IntegrationTest" transform="translate(272.75,139)" style="opacity: 1;"><rect rx="0" ry="0" x="-61.890625" y="-23" width="123.78125" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-51.890625,-13)"><foreignObject width="103.78125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">IntegrationTest</div></foreignObject></g></g></g><g class="node" id="CodeQualityGate" transform="translate(455.5546875,91)" style="opacity: 1;"><rect rx="0" ry="0" x="-70.9140625" y="-23" width="141.828125" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-60.9140625,-13)"><foreignObject width="121.828125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">CodeQualityGate</div></foreignObject></g></g></g><g class="node" id="CanaryDeploySTG" transform="translate(650.9453125,91)" style="opacity: 1;"><rect rx="0" ry="0" x="-74.4765625" y="-23" width="148.953125" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-64.4765625,-13)"><foreignObject width="128.953125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">CanaryDeploySTG</div></foreignObject></g></g></g><g class="node" id="MonitoringAlert" transform="translate(841.7734375,91)" style="opacity: 1;"><rect rx="0" ry="0" x="-66.3515625" y="-23" width="132.703125" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-56.3515625,-13)"><foreignObject width="112.703125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">MonitoringAlert</div></foreignObject></g></g></g><g class="node" id="FullDeploySTG" transform="translate(1020.296875,91)" style="opacity: 1;"><rect rx="0" ry="0" x="-62.171875" y="-23" width="124.34375" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-52.171875,-13)"><foreignObject width="104.34375" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">FullDeploySTG</div></foreignObject></g></g></g><g class="node" id="GUITest" transform="translate(1170.7421875,43)" style="opacity: 1;"><rect rx="0" ry="0" x="-38.2734375" y="-23" width="76.546875" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-28.2734375,-13)"><foreignObject width="56.546875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">GUITest</div></foreignObject></g></g></g><g class="node" id="APITest" transform="translate(1170.7421875,139)" style="opacity: 1;"><rect rx="0" ry="0" x="-36.765625" y="-23" width="73.53125" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-26.765625,-13)"><foreignObject width="53.53125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">APITest</div></foreignObject></g></g></g><g class="node" id="Report" transform="translate(1292.796875,91)" style="opacity: 1;"><rect rx="0" ry="0" x="-33.78125" y="-23" width="67.5625" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-23.78125,-13)"><foreignObject width="47.5625" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Report</div></foreignObject></g></g></g></g></g></g></svg></div>
+<h2 id="facilities">Facilities</h2>
+<ul>
+<li>
+<h3 id="must-have">Must have</h3>
+</li>
+<li>
+<p>Business Specification document provide</p>
+</li>
+<li>
+<p>1 VM instance to execute test</p>
+</li>
+<li>
+<p>Any works from SDEs to make AUT testable</p>
+</li>
+<li>
+<p>A clean, as much as posible same as Prodcution environment</p>
+</li>
+<li>
+<h3 id="nice-to-have">Nice to have</h3>
+</li>
+<li>
+<p>Test Management server</p>
+</li>
+<li>
+<p>1 VM instance to host report portal</p>
+</li>
+</ul>
+<h2 id="process">Process</h2>
+<div class="mermaid"><svg xmlns="http://www.w3.org/2000/svg" id="mermaid-svg-2JmveanHB1XORhW0" width="100%" style="max-width: 1022.8125px;" viewBox="0 0 1022.8125 187"><g transform="translate(-12, -12)"><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M101.703125,110L126.703125,110L151.703125,110" marker-end="url(#arrowhead583)" style="fill:none"></path><defs><marker id="arrowhead583" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M233.4207089552239,87L285.59375,43L310.59375,43" marker-end="url(#arrowhead584)" style="fill:none"></path><defs><marker id="arrowhead584" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M392.8125,43L417.8125,43L447.1484375,50.77654788259659" marker-end="url(#arrowhead585)" style="fill:none"></path><defs><marker id="arrowhead585" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M369.180316091954,66L417.8125,130L460.99609375,145" marker-end="url(#arrowhead586)" style="fill:none"></path><defs><marker id="arrowhead586" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M460.99609375,95L417.8125,110L351.703125,110L285.59375,110L260.59375,110" marker-end="url(#arrowhead587)" style="fill:none"></path><defs><marker id="arrowhead587" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M442.8125,175.7147754052703L417.8125,178L351.703125,178L285.59375,178L233.01964613970588,133" marker-end="url(#arrowhead588)" style="fill:none"></path><defs><marker id="arrowhead588" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M607.2734375,72L636.609375,72L687.4191080729166,97" marker-end="url(#arrowhead589)" style="fill:none"></path><defs><marker id="arrowhead589" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M611.609375,168L636.609375,168L687.4191080729166,143" marker-end="url(#arrowhead590)" style="fill:none"></path><defs><marker id="arrowhead590" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M806.71875,120L831.71875,120L856.71875,120" marker-end="url(#arrowhead591)" style="fill:none"></path><defs><marker id="arrowhead591" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node" id="BizSpecs" transform="translate(60.8515625,110)" style="opacity: 1;"><rect rx="0" ry="0" x="-40.8515625" y="-23" width="81.703125" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-30.8515625,-13)"><foreignObject width="61.703125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">BizSpecs</div></foreignObject></g></g></g><g class="node" id="TestFeatures" transform="translate(206.1484375,110)" style="opacity: 1;"><rect rx="0" ry="0" x="-54.4453125" y="-23" width="108.890625" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-44.4453125,-13)"><foreignObject width="88.890625" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">TestFeatures</div></foreignObject></g></g></g><g class="node" id="TestData" transform="translate(351.703125,43)" style="opacity: 1;"><rect rx="0" ry="0" x="-41.109375" y="-23" width="82.21875" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-31.109375,-13)"><foreignObject width="62.21875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">TestData</div></foreignObject></g></g></g><g class="node" id="UIAutomationScript" transform="translate(527.2109375,72)" style="opacity: 1;"><rect rx="0" ry="0" x="-80.0625" y="-23" width="160.125" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-70.0625,-13)"><foreignObject width="140.125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">UIAutomationScript</div></foreignObject></g></g></g><g class="node" id="APIAutomationScript" transform="translate(527.2109375,168)" style="opacity: 1;"><rect rx="0" ry="0" x="-84.3984375" y="-23" width="168.796875" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-74.3984375,-13)"><foreignObject width="148.796875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">APIAutomationScript</div></foreignObject></g></g></g><g class="node" id="CI_CD_Integrated" transform="translate(734.1640625,120)" style="opacity: 1;"><rect rx="0" ry="0" x="-72.5546875" y="-23" width="145.109375" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-62.5546875,-13)"><foreignObject width="125.109375" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">CI_CD_Integrated</div></foreignObject></g></g></g><g class="node" id="RegressionTestReport" transform="translate(941.765625,120)" style="opacity: 1;"><rect rx="0" ry="0" x="-85.046875" y="-23" width="170.09375" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-75.046875,-13)"><foreignObject width="150.09375" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">RegressionTestReport</div></foreignObject></g></g></g></g></g></g></svg></div>
+<h2 id="framework-architect">Framework Architect</h2>
+<div class="mermaid"><svg xmlns="http://www.w3.org/2000/svg" id="mermaid-svg-yeu3a4EX2dRAruwZ" width="100%" style="max-width: 1180.703125px;" viewBox="0 0 1180.703125 254"><g transform="translate(-12, -12)"><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M55.171875,139L80.171875,139L105.171875,139" marker-end="url(#arrowhead634)" style="fill:none"></path><defs><marker id="arrowhead634" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M172.05354817708334,116L204.40625,91L229.40625,91" marker-end="url(#arrowhead635)" style="fill:none"></path><defs><marker id="arrowhead635" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M172.05354817708334,162L204.40625,187L232.96875,187" marker-end="url(#arrowhead636)" style="fill:none"></path><defs><marker id="arrowhead636" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M382.9375,91L407.9375,91L445.0305989583333,116" marker-end="url(#arrowhead637)" style="fill:none"></path><defs><marker id="arrowhead637" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M379.375,187L407.9375,187L445.0305989583333,162" marker-end="url(#arrowhead638)" style="fill:none"></path><defs><marker id="arrowhead638" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M525.375,139L550.375,139L575.375,139" marker-end="url(#arrowhead639)" style="fill:none"></path><defs><marker id="arrowhead639" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M651.9917805989584,116L714.328125,43L739.328125,43" marker-end="url(#arrowhead640)" style="fill:none"></path><defs><marker id="arrowhead640" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M689.328125,139L714.328125,139L744.625,139" marker-end="url(#arrowhead641)" style="fill:none"></path><defs><marker id="arrowhead641" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M651.9917805989584,162L714.328125,235L771.140625,235" marker-end="url(#arrowhead642)" style="fill:none"></path><defs><marker id="arrowhead642" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M919.546875,43L944.546875,43L1005.0415852864584,116" marker-end="url(#arrowhead643)" style="fill:none"></path><defs><marker id="arrowhead643" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M914.25,139L944.546875,139L969.546875,139" marker-end="url(#arrowhead644)" style="fill:none"></path><defs><marker id="arrowhead644" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M887.734375,235L944.546875,235L1005.0415852864584,162" marker-end="url(#arrowhead645)" style="fill:none"></path><defs><marker id="arrowhead645" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M1078.65625,139L1103.65625,139L1128.65625,139" marker-end="url(#arrowhead646)" style="fill:none"></path><defs><marker id="arrowhead646" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node" id="CI" transform="translate(37.5859375,139)" style="opacity: 1;"><rect rx="0" ry="0" x="-17.5859375" y="-23" width="35.171875" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-7.5859375,-13)"><foreignObject width="15.171875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">CI</div></foreignObject></g></g></g><g class="node" id="TestFW" transform="translate(142.2890625,139)" style="opacity: 1;"><rect rx="0" ry="0" x="-37.1171875" y="-23" width="74.234375" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-27.1171875,-13)"><foreignObject width="54.234375" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">TestFW</div></foreignObject></g></g></g><g class="node" id="APILib-httprequest" transform="translate(306.171875,91)" style="opacity: 1;"><rect rx="0" ry="0" x="-76.765625" y="-23" width="153.53125" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-66.765625,-13)"><foreignObject width="133.53125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">APILib-httprequest</div></foreignObject></g></g></g><g class="node" id="GUILib-Protractor" transform="translate(306.171875,187)" style="opacity: 1;"><rect rx="0" ry="0" x="-73.203125" y="-23" width="146.40625" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-63.203125,-13)"><foreignObject width="126.40625" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">GUILib-Protractor</div></foreignObject></g></g></g><g class="node" id="Cucumber" transform="translate(479.15625,139)" style="opacity: 1;"><rect rx="0" ry="0" x="-46.21875" y="-23" width="92.4375" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-36.21875,-13)"><foreignObject width="72.4375" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Cucumber</div></foreignObject></g></g></g><g class="node" id="SeleniumHub" transform="translate(632.3515625,139)" style="opacity: 1;"><rect rx="0" ry="0" x="-56.9765625" y="-23" width="113.953125" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-46.9765625,-13)"><foreignObject width="93.953125" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">SeleniumHub</div></foreignObject></g></g></g><g class="node" id="LocalDesktopBrowsers" transform="translate(829.4375,43)" style="opacity: 1;"><rect rx="0" ry="0" x="-90.109375" y="-23" width="180.21875" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-80.109375,-13)"><foreignObject width="160.21875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">LocalDesktopBrowsers</div></foreignObject></g></g></g><g class="node" id="LocalMobileBrowsers" transform="translate(829.4375,139)" style="opacity: 1;"><rect rx="0" ry="0" x="-84.8125" y="-23" width="169.625" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-74.8125,-13)"><foreignObject width="149.625" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">LocalMobileBrowsers</div></foreignObject></g></g></g><g class="node" id="CloudDevices" transform="translate(829.4375,235)" style="opacity: 1;"><rect rx="0" ry="0" x="-58.296875" y="-23" width="116.59375" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-48.296875,-13)"><foreignObject width="96.59375" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">CloudDevices</div></foreignObject></g></g></g><g class="node" id="ReportPortal" transform="translate(1024.1015625,139)" style="opacity: 1;"><rect rx="0" ry="0" x="-54.5546875" y="-23" width="109.109375" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-44.5546875,-13)"><foreignObject width="89.109375" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">ReportPortal</div></foreignObject></g></g></g><g class="node" id="Slack" transform="translate(1156.6796875,139)" style="opacity: 1;"><rect rx="0" ry="0" x="-28.0234375" y="-23" width="56.046875" height="46"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-18.0234375,-13)"><foreignObject width="36.046875" height="26"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Slack</div></foreignObject></g></g></g></g></g></g></svg></div>
+<ul>
+<li>More details, please check on assignment 2</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ul>
+<li>
+<p>AUT is not testable</p>
+</li>
+<li>
+<p>In some design, application/function are not able to test. This common software architect bug. Fixing this need to involve more SDEs/Sr.TAs and making test progress would be slower than expect</p>
+</li>
+<li>
+<p>Test environment is not good enough</p>
+</li>
+<li>
+<p>Test environmnet somehow is not same config with production, then it would not behave correctly and give flaky tests, unexpected result</p>
+</li>
+<li>
+<p>Many change requests come during tests are making</p>
+</li>
+<li>
+<p>This would slowly/ add more effort for making test scripts.</p>
+</li>
+<li>
+<p>Not enough test data preparation</p>
+</li>
+<li>
+<p>Happen when SDEs/SDETs don’t understand system deeply, includemake lesson learn then</p>
+</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<ul>
+<li>Does making api + gui tests duplicate work?</li>
+</ul>
+<blockquote>
+<p>No, while api test validate correctness of data, gui test only verify how application work. This reduce many effort in maintaining when frontend - backend changes</p>
+</blockquote>
+<ul>
+<li>What is system testable ?</li>
+</ul>
+<blockquote>
+<p>Refer to <a href="https://en.wikipedia.org/wiki/Software_testability">Design for Testability </a></p>
+</blockquote>
+<ul>
+<li>Can we skip unit test / integration test ?</li>
+</ul>
+<blockquote>
+<p>No, while unit tests / integration tests are low cost than api/gui tests, there is no reason to put more dependents on them.</p>
+</blockquote>
+<h2 id="question">Question</h2>
+<ul>
+<li>
+<p>What are the most used browsers’s application?</p>
+</li>
+<li>
+<p>What are screen size most used from this application?</p>
+</li>
+<li>
+<p>Do we have Fully and updated Business Specs?</p>
+</li>
+</ul>
+</div>
+</body>
+
+</html>
