@@ -54,7 +54,7 @@
     "fetch": "^1.1.0",
     "fs": "0.0.1-security",
     "is-my-json-valid": "^2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "node-datetime": "^2.1.2",
     "path": "^0.12.7",
     "prettyjson": "^1",
